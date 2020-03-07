@@ -29,12 +29,6 @@ public class HibernateUtil {
             settings.put(Environment.HBM2DDL_AUTO, "update");
             configuration.setProperties(settings);
 
-
-           // configuration.addAnnotatedClass(User.class);
-            //configuration.addAnnotatedClass(Address.class);
-           // configuration.addAnnotatedClass(Phone.class);
-            //configuration.addAnnotatedClass(Vehicle.class);
-
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
