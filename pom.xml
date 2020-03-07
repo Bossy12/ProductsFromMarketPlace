@@ -8,16 +8,18 @@
     <artifactId>ProductsFromMarketPlace</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>LATEST</version>
-    </dependency>
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>LATEST</version>
+        </dependency>
 
-    <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-core</artifactId>
-        <version>LATEST</version>
-    </dependency>
-    
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>LATEST</version>
+        </dependency>
+    </dependencies>
+
 </project>
