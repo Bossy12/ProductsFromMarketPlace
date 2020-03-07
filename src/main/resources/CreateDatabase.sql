@@ -29,5 +29,5 @@ values ('TV LCD',1500,50),
        ('Tablet', 800, 200);
 
 
-drop table user_details;
+/*drop table user_details;
 /*drop table product;
