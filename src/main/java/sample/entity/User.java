@@ -2,6 +2,10 @@ package sample.entity;
 
 
 import lombok.Data;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import sample.HibernateUtil;
+
 
 import javax.persistence.*;
 
@@ -21,8 +25,6 @@ public class User {
 
     public double buyProduct(User user, Product selectedProduct, int quantity) {
 
-
-
         confirmPayment();
         return 1;
     }
@@ -33,6 +35,21 @@ public class User {
 
     public void addProduct(Product productToAdd, int quantity) {
 
+
+        Session session = HibernateUtil.getSession();
+
+
+        session.beginTransaction();
+
+
+        Query<Product> query = session.createQuery("select p from Product p where productName = :productName", Product.class);
+        query.setParameter("productName", productToAdd.getProductName());
+        query.getSingleResult();
+
+
+        session.save(productToAdd);
+        session.getTransaction().commit();
+        session.close();
 
 
     }
