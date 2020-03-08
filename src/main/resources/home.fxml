@@ -59,7 +59,7 @@
         <TreeView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
     </left>
     <center>
-        <TextArea prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+        <TextArea BorderPane.alignment="CENTER" />
     </center>
     <bottom>
         <HBox BorderPane.alignment="CENTER">
