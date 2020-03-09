@@ -5,6 +5,8 @@ import org.hibernate.query.Query;
 import sample.entity.Product;
 import sample.entity.User;
 
+import java.util.List;
+
 public class UserUtil {
 
     private Session session = HibernateUtil.getSession();
@@ -21,12 +23,17 @@ public class UserUtil {
 
     // TODO: 3/8/2020  
     public void addProduct(Product productToAdd, int quantity) {
-
         session.beginTransaction();
 
-        Query query = session.createQuery("update Product p set p.quantity = p.quantity + : increment where p.productName = :productName");
-        query.setParameter("increment", productToAdd.getQuantity() + quantity);
-        query.setParameter("productName",productToAdd.getProductName());
+//        update product set quantity = 100 where product_name = 'TV LCD';
+        Query<Product> readQuery = session.createQuery(
+                "select p from Product p where p.productName = :productName", Product.class);
+        readQuery.setParameter("productName", productToAdd.getProductName());
+        List<Product> resultProduct = readQuery.getResultList();
+
+        Query updateQuery = session.createQuery("update Product p set p.quantity = :increment where p.productName = :productName", Product.class );
+        updateQuery.setParameter("increment", resultProduct.get(0).getQuantity() + quantity);
+        updateQuery.setParameter("productName",productToAdd.getProductName());
         session.save(productToAdd);
         session.getTransaction().commit();
         session.close();
