@@ -14,8 +14,8 @@ import javax.persistence.*;
 @Data
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int userId;
     @Column(name = "user_name", unique = true, nullable = true, length = 30)
     private String username;
     @Column(name = "password")
