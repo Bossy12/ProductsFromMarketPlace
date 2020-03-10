@@ -21,8 +21,8 @@ public class main2 {
         product.setQuantity(100);
         product.setPrice(900);
 
-        ProductUtil productUtil = new ProductUtil();
+        ProductDao productDao = new ProductDao();
         // productUtil.removeProduct(product);
-productUtil.addProduct(product);
+productDao.addProduct(product);
     }
 }

@@ -7,7 +7,7 @@ import sample.entity.User;
 
 import java.util.List;
 
-public class UserUtil {
+public class UserDao {
 
     private Session session = HibernateUtil.getSession();
 
