@@ -1,12 +1,12 @@
 package sample;
 
-import org.hibernate.FlushMode;
+import lombok.Data;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import sample.entity.Product;
 
-public class ProductUtil {
+@Data
+public class ProductDao {
     private Session session = HibernateUtil.getSession();
 
     public void increaseProductQuantity() {
@@ -31,7 +31,6 @@ public class ProductUtil {
         }
         session.close();
     }
-
 
     public void addProduct(Product productToAdd) {
         Transaction transaction = null;
