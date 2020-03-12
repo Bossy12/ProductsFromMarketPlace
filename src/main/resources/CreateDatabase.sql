@@ -10,7 +10,7 @@ create table user_details
 
 create table product
 (
-    id   int auto_increment unique not null primary key,
+    id           int auto_increment unique not null primary key,
     product_name varchar(30)               not null,
     price        double                    not null,
     quantity     int                       not null
@@ -22,11 +22,11 @@ values ('Ionut', '123456', 'employee'),
        ('Marius', '142536', 'costumer');
 
 insert into product (product_name, price, quantity)
-values ('TV LCD',1500,50),
+values ('TV LCD', 1500, 50),
        ('Smartphone ', 2500, 100),
        ('Laptop', 3500, 30),
        ('Microwave Owen', 300, 50),
-       ('Washing Machine',1500, 40),
+       ('Washing Machine', 1500, 40),
        ('Refrigerator', 1200, 25),
        ('Tablet', 800, 200);
 
