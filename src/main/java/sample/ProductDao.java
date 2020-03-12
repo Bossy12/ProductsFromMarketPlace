@@ -7,19 +7,12 @@ import sample.entity.Product;
 
 @Data
 public class ProductDao {
-    private Session session = HibernateUtil.getSession();
-
-    public void increaseProductQuantity() {
-
-    }
 
     public void removeProduct(Product productToRemove) {
+        Session session = HibernateUtil.getSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-/*            String hql = "delete FROM Product p where p.id = :pId ";
-            Query query = session.createQuery(hql);
-            query.setParameter("pId", productToRemove.getProductId());*/
             session.delete(productToRemove);
             transaction.commit();
 
@@ -33,6 +26,7 @@ public class ProductDao {
     }
 
     public void addProduct(Product productToAdd) {
+        Session session = HibernateUtil.getSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
