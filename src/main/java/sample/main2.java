@@ -18,8 +18,15 @@ public class main2 {
 //        product.setQuantity(100);
 //        product.setPrice(900);
 //
-//        ProductDao productDao = new ProductDao();
+        ProductDao productDao = new ProductDao();
+        UserDao userDao = new UserDao();
 //        productDao.addProduct(product);
 //        productDao.removeProduct(product);
+        productDao.getAllProducts();
+        System.out.println();
+        productDao.getProduct(10);
+        userDao.getAllUsers();
+        userDao.getUser(4);
+
     }
 }
