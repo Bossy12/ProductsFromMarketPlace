@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <center>
       <TableView BorderPane.alignment="CENTER">
         <columns>
@@ -25,18 +26,24 @@
    <right>
       <VBox prefHeight="347.0" prefWidth="116.0" BorderPane.alignment="CENTER">
          <children>
-            <Region prefHeight="200.0" prefWidth="113.0" />
-            <Button mnemonicParsing="false" onAction="#addProduct" prefHeight="23.0" prefWidth="114.0" text="Add Product" textFill="GREEN">
+            <Region prefHeight="107.0" prefWidth="116.0" />
+            <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="114.0" text="Add Product" textFill="GREEN">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#removeProduct" prefHeight="23.0" prefWidth="114.0" text="Remove Product" textFill="RED">
+            <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="114.0" text="Remove Product" textFill="RED">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#buyWithDiscount" prefHeight="25.0" prefWidth="114.0" text="Buy with Discount" textFill="BLUE" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="Buy with Discount" textFill="BLUE" />
+            <Region prefHeight="57.0" prefWidth="116.0" />
+            <Button mnemonicParsing="false" onAction="#onReturnClicked" prefHeight="52.0" prefWidth="90.0" text="Return">
+               <VBox.margin>
+                  <Insets left="12.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
    </right>

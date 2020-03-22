@@ -10,7 +10,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.hibernate.usertype.UserType;
 import sample.entity.User;
 
 
@@ -31,17 +30,29 @@ public class Controller {
         user.setPassword(password.getText());
 
         UserVerifier userVerifier = new UserVerifier();
-        if (userVerifier.userExist(user) && userVerifier.isUserEmployeeType(user)) {
+        if (userVerifier.userExist(user)) {
+                Parent parent = FXMLLoader.load(getClass().getResource("/employee.fxml"));
+                Scene scene = new Scene(parent);
+                Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                appStage.setScene(scene);
+                appStage.show();
 
-            Scene scene = new Scene(parent);
-            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            appStage.setScene(scene);
-            appStage.show();
+            } else if (userVerifier.userExist(user) || UserVerifier.isUserCustomerType(user)) {
+                Parent parent = FXMLLoader.load(getClass().getResource("/customer.fxml"));
+                Scene scene = new Scene(parent);
+                Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                appStage.setScene(scene);
+                appStage.show();
 
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("You have failed !!!!");
-            alert.show();
-        }
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("You have failed !!!!");
+                alert.show();
+            }
+
+    }
+    @FXML
+    void onReturnClicked() throws IOException {
+        Main.showParentScene();
     }
 }
