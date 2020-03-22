@@ -18,8 +18,8 @@ create table product
 
 insert into user_details (user_name, password, user_type)
 values ('Ionut', '123456', 'employee'),
-       ('George', '654321', 'costumer'),
-       ('Marius', '142536', 'costumer');
+       ('George', '654321', 'customer'),
+       ('Marius', '142536', 'customer');
 
 insert into product (product_name, price, quantity)
 values ('TV LCD', 1500, 50),
