@@ -30,7 +30,7 @@ public class Controller {
         user.setPassword(password.getText());
 
         UserVerifier userVerifier = new UserVerifier();
-        if (userVerifier.userExist(user) && isUserEmployeType(user)) {
+        if (userVerifier.userExist(user) && userVerifier.isUserEmployeeType(user)) {
             Parent parent = FXMLLoader.load(getClass().getResource("emploee.fxml"));
             Scene scene = new Scene(parent);
             Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();

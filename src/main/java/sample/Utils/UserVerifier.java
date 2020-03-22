@@ -1,4 +1,4 @@
-package sample;
+package sample.Utils;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -22,8 +22,6 @@ public class UserVerifier {
         query.setParameter("username", userToVerify.getUsername());
         query.setParameter("password", userToVerify.getPassword());
         return "employee".equals(query.getSingleResult().getUserType());
-
     }
-
 
 }
