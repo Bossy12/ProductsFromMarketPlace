@@ -8,12 +8,22 @@ import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class Main extends Application {
+import java.io.IOException;
 
+public class Main extends Application {
+    public static Stage primaryStage;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
-        primaryStage.setTitle("Hello World");
+        this.primaryStage = primaryStage;
+        showParentScene();
+        //CustomerController.nameOfProducts();
+
+
+    }
+
+    public static void showParentScene() throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("/home.fxml"));
+        primaryStage.setTitle("ProductsFromMarketPlace");
         primaryStage.setScene(new Scene(root, 500, 375));
         primaryStage.show();
 
@@ -26,4 +36,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }
