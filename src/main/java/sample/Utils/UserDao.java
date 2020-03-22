@@ -1,32 +1,31 @@
-package sample;
+package sample.Utils;
 
-import lombok.Data;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import sample.entity.Product;
+import sample.entity.User;
 
 import java.util.List;
 
-@Data
-public class ProductDao {
+public class UserDao {
     private Session session = HibernateUtil.getSession();
 
-    public List getAllProducts() {
-        List<Product> products = session.createQuery("from Product").list();
-        return products;
+    public List getAllUsers() {
+        List<User> users = session.createQuery("from User").list();
+        return users;
     }
 
-    public Product getProduct(int productId) {
-        Product product = session.get(Product.class, productId);
-        return product;
+    public User getUser(int userId) {
+        User user = session.get(User.class, userId);
+        return user;
     }
 
-    public void removeProduct(Product productToRemove) {
-        Session session = HibernateUtil.getSession();
+    public void removeUser(User userToRemove) {
+
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.delete(productToRemove);
+            session.delete(userToRemove);
             transaction.commit();
 
         } catch (Exception ex) {
@@ -38,12 +37,12 @@ public class ProductDao {
         session.close();
     }
 
-    public void addProduct(Product productToAdd) {
-        Session session = HibernateUtil.getSession();
+    public void addUser(User userToAdd) {
+
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.save(productToAdd);
+            session.save(userToAdd);
             transaction.commit();
 
         } catch (Exception ex) {
@@ -54,4 +53,17 @@ public class ProductDao {
         }
         session.close();
     }
+
+    public double buyProduct(User user, Product selectedProduct, int quantity) {
+        ProductDao productDao;
+
+
+        confirmPayment();
+        return 1;
+    }
+
+    public void confirmPayment() {
+
+    }
+
 }
