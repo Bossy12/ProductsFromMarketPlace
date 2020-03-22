@@ -6,6 +6,7 @@ import javafx.scene.control.TableView;
 import org.hibernate.Session;
 import org.hibernate.mapping.Table;
 import org.hibernate.query.Query;
+import sample.Utils.HibernateUtil;
 import sample.entity.Product;
 
 import java.io.IOException;
