@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import sample.Utils.HibernateUtil;
 
 import java.io.IOException;
 
