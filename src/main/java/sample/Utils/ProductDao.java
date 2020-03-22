@@ -1,31 +1,32 @@
-package sample;
+package sample.Utils;
 
+import lombok.Data;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import sample.entity.Product;
-import sample.entity.User;
 
 import java.util.List;
 
-public class UserDao {
+@Data
+public class ProductDao {
     private Session session = HibernateUtil.getSession();
 
-    public List getAllUsers() {
-        List<User> users = session.createQuery("from User").list();
-        return users;
+    public List getAllProducts() {
+        List<Product> products = session.createQuery("from Product").list();
+        return products;
     }
 
-    public User getUser(int userId) {
-        User user = session.get(User.class, userId);
-        return user;
+    public Product getProduct(int productId) {
+        Product product = session.get(Product.class, productId);
+        return product;
     }
 
-    public void removeUser(User userToRemove) {
-
+    public void removeProduct(Product productToRemove) {
+        Session session = HibernateUtil.getSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.delete(userToRemove);
+            session.delete(productToRemove);
             transaction.commit();
 
         } catch (Exception ex) {
@@ -37,12 +38,12 @@ public class UserDao {
         session.close();
     }
 
-    public void addUser(User userToAdd) {
-
+    public void addProduct(Product productToAdd) {
+        Session session = HibernateUtil.getSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.save(userToAdd);
+            session.save(productToAdd);
             transaction.commit();
 
         } catch (Exception ex) {
@@ -53,18 +54,4 @@ public class UserDao {
         }
         session.close();
     }
-
-    public double buyProduct(User user, Product selectedProduct, int quantity) {
-        ProductDao productDao;
-
-
-        confirmPayment();
-        return 1;
-    }
-
-    public void confirmPayment() {
-
-    }
-
-
 }

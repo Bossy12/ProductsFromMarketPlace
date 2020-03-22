@@ -1,6 +1,4 @@
-package sample;
-
-
+package sample.Utils;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,7 +8,6 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 import sample.entity.Product;
 import sample.entity.User;
-
 import java.util.Properties;
 
 
