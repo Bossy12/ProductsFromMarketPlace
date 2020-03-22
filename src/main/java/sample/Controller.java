@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,7 +13,7 @@ import javafx.stage.Stage;
 import org.hibernate.usertype.UserType;
 import sample.entity.User;
 
-import java.awt.event.ActionEvent;
+
 import java.io.IOException;
 
 
@@ -31,14 +32,11 @@ public class Controller {
 
         UserVerifier userVerifier = new UserVerifier();
         if (userVerifier.userExist(user) && userVerifier.isUserEmployeeType(user)) {
-            Parent parent = FXMLLoader.load(getClass().getResource("emploee.fxml"));
+
             Scene scene = new Scene(parent);
-            Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);
             appStage.show();
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setContentText("You have logged in succesfully !");
-                alert.show();
 
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -46,5 +44,4 @@ public class Controller {
             alert.show();
         }
     }
-
 }
