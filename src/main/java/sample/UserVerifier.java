@@ -6,24 +6,23 @@ import sample.entity.User;
 
 public class UserVerifier {
 
-    private Session session = HibernateUtil.getSession();
+    private static Session session = HibernateUtil.getSession();
 
     public boolean userExist(User userToVerify) {
         Query<User> query = session.createQuery(
-                "select u from User u where username = :username and  password = :password", User.class);
+                "select u from User u where username = :username and  password = :password and userType = 'employee'", User.class);
         query.setParameter("username", userToVerify.getUsername());
         query.setParameter("password", userToVerify.getPassword());
         return query.getResultList().size() > 0;
     }
 
-    public boolean isUserEmployeeType(User userToVerify) {
+    public static boolean isUserCustomerType(User userToVerify) {
         Query<User> query = session.createQuery(
-                "select u from User u where username = :username and  password = :password", User.class);
+                "select u from User u where username = :username and  password = :password and userType = 'customer'", User.class);
         query.setParameter("username", userToVerify.getUsername());
         query.setParameter("password", userToVerify.getPassword());
-        return "employee".equals(query.getSingleResult().getUserType());
-
+        //return query.getResultList().equals("customer");
+       //return query.getSingleResult().getUserType().equals("customer");
+        return query.getResultList().size() > 0;
     }
-
-
 }
