@@ -1,6 +1,7 @@
 package sample.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -17,5 +18,6 @@ public class User {
     @Column(name = "password")
     private String password;
     @Column(name = "user_type")
-    private String userType;
+    @Enumerated(EnumType.STRING)
+    private UserType userType;
 }
