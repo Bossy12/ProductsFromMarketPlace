@@ -17,9 +17,9 @@ create table product
 );
 
 insert into user_details (user_name, password, user_type)
-values ('Ionut', '123456', 'employee'),
-       ('George', '654321', 'customer'),
-       ('Marius', '142536', 'customer');
+values ('Ionut', '123456', 'EMPLOYEE'),
+       ('George', '654321', 'CUSTOMER'),
+       ('Marius', '142536', 'CUSTOMER');
 
 insert into product (product_name, price, quantity)
 values ('TV LCD', 1500, 50),
@@ -30,8 +30,6 @@ values ('TV LCD', 1500, 50),
        ('Refrigerator', 1200, 25),
        ('Tablet', 800, 200);
 
-
-#  drop schema market_place;
-
-/*drop table user_details;
-/*drop table product;
+#   drop schema market_place;
+#   drop table user_details;
+#   drop table product;
