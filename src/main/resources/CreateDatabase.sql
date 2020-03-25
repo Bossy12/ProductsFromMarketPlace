@@ -30,7 +30,6 @@ values ('TV LCD', 1500, 50),
        ('Refrigerator', 1200, 25),
        ('Tablet', 800, 200);
 
-
-# drop schema market_place;
-# drop table user_details;
-# drop table product;
+#   drop schema market_place;
+#   drop table user_details;
+#   drop table product;

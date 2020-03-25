@@ -22,8 +22,6 @@ public class UserVerifier {
                 "select u from User u where username = :username and  password = :password", User.class);
         query.setParameter("username", userToVerify.getUsername());
         query.setParameter("password", userToVerify.getPassword());
-
         return query.getSingleResult().getUserType().equals(UserType.EMPLOYEE);
     }
-
 }
