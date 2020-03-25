@@ -1,6 +1,7 @@
 package sample.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -11,10 +12,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "user_name", unique = true, nullable = true, length = 30)
+    @Column(name = "user_name", unique = true, nullable = false, length = 30)
     private String username;
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
-    @Column(name = "user_type")
-    private String userType;
+    @Column(name = "user_type",nullable = false)
+    @Enumerated(EnumType.STRING)
+    private UserType userType;
 }
