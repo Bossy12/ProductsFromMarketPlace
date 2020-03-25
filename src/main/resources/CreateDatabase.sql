@@ -3,7 +3,7 @@ use market_place;
 create table user_details
 (
     id        int auto_increment unique not null primary key,
-    user_name varchar(30)               not null,
+    user_name varchar(30) unique        not null,
     password  varchar(30)               not null,
     user_type varchar(30)               not null
 );
@@ -11,7 +11,7 @@ create table user_details
 create table product
 (
     id           int auto_increment unique not null primary key,
-    product_name varchar(30)               not null,
+    product_name varchar(30) unique        not null,
     price        double                    not null,
     quantity     int                       not null
 );
