@@ -3,6 +3,7 @@ package sample.Utils;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import sample.entity.User;
+import sample.entity.UserType;
 
 public class UserVerifier {
 
@@ -21,7 +22,6 @@ public class UserVerifier {
                 "select u from User u where username = :username and  password = :password", User.class);
         query.setParameter("username", userToVerify.getUsername());
         query.setParameter("password", userToVerify.getPassword());
-        return "employee".equals(query.getSingleResult().getUserType());
+        return query.getSingleResult().getUserType().equals(UserType.EMPLOYEE);
     }
-
 }
