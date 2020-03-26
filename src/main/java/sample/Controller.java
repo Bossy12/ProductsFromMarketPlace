@@ -31,14 +31,14 @@ public class Controller {
         user.setPassword(password.getText());
 
         UserVerifier userVerifier = new UserVerifier();
-        if (userVerifier.userExist(user)) {
+        if (userVerifier.userExist(user) && userVerifier.isUserEmployeeType(user)) {
             Parent parent = FXMLLoader.load(getClass().getResource("/employee.fxml"));
             Scene scene = new Scene(parent);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);
             appStage.show();
 
-        } else if (userVerifier.userExist(user) || userVerifier.isUserEmployeeType(user)) {
+        } else if (userVerifier.userExist(user) && !userVerifier.isUserEmployeeType(user)) {
             Parent parent = FXMLLoader.load(getClass().getResource("/customer.fxml"));
             Scene scene = new Scene(parent);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
