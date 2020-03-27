@@ -12,14 +12,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EmployeeController">
    <center>
-      <TableView BorderPane.alignment="CENTER">
+      <TableView fx:id="productTable" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="75.0" text="Product" />
-          <TableColumn prefWidth="75.0" text="Price" />
+          <TableColumn fx:id="nameOfProduct" prefWidth="75.0" text="Product" />
+          <TableColumn fx:id="priceOfProduct" prefWidth="75.0" text="Price" />
             <TableColumn prefWidth="75.0" text=" In Stock" />
-            <TableColumn prefWidth="75.0" text="Quantity" />
+            <TableColumn fx:id="quantity" prefWidth="75.0" text="Quantity" />
         </columns>
       </TableView>
    </center>
