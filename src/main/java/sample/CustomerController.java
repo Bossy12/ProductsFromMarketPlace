@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import sample.Utils.HibernateUtil;
+import sample.Utils.ProductDao;
 import sample.entity.Product;
 
 import java.io.IOException;
@@ -17,7 +18,7 @@ import java.util.List;
 public class CustomerController {
 
     @FXML
-    TableView<Product> productTable;
+    TableView<ProductDao> productTable;
     @FXML
     TableColumn<Product, String> nameOfProduct;
     @FXML
@@ -37,11 +38,10 @@ public class CustomerController {
         nameOfProduct.setCellValueFactory(new PropertyValueFactory<>("productName"));
         priceOfProduct.setCellValueFactory(new PropertyValueFactory<>("price"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        Query<Product> query = session.createQuery(
-                "select p from Product p", Product.class);
-        List<Product> results = query.list();
-        ObservableList<Product> observableArrayList =
-                FXCollections.observableArrayList(results);
+        ProductDao products = new ProductDao();
+        List<ProductDao> result = products.getAllProducts();
+        ObservableList<ProductDao> observableArrayList;
+        observableArrayList = FXCollections.observableArrayList (result);
         productTable.setItems(observableArrayList);
     }
 }
