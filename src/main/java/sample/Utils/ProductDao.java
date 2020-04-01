@@ -13,7 +13,7 @@ import java.util.List;
 public class ProductDao {
     private Session session = HibernateUtil.getSession();
 
-    public List getAllProducts() {
+    public List<Product> getAllProducts() {
         List<Product> products = session.createQuery("from Product").list();
         return products;
     }
