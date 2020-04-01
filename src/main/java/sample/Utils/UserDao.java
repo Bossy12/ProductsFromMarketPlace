@@ -62,7 +62,7 @@ public class UserDao {
         }
         session.close();
     }
-
+/*
     public double buyProduct(User user, Product selectedProduct, int quantity) {
         double discount = 1d;
         double price = selectedProduct.getPrice() * quantity;
@@ -72,6 +72,7 @@ public class UserDao {
         price *= discount;
         return price;
     }
+*/
 
     public void confirmPayment() {
 

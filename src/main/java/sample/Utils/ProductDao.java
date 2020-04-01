@@ -3,7 +3,9 @@ package sample.Utils;
 import lombok.Data;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import sample.entity.Product;
+import sample.entity.User;
 
 import java.util.List;
 
@@ -20,6 +22,14 @@ public class ProductDao {
         Product product = session.get(Product.class, productId);
         return product;
     }
+
+    public Product getProductByName(String productName) {
+        Query<Product> query = session.createQuery(
+                "select p from Product p where productName = :productName", Product.class);
+        query.setParameter("productName", productName);
+        return query.getSingleResult();
+    }
+
 
     public void removeProduct(Product productToRemove) {
         Session session = HibernateUtil.getSession();
