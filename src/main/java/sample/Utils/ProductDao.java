@@ -5,7 +5,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import sample.entity.Product;
-import sample.entity.User;
 
 import java.util.List;
 
