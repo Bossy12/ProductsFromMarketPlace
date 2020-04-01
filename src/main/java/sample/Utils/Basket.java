@@ -33,7 +33,8 @@ public class Basket {
         double sum = 0;
         for (Product p : basketProducts) {
             double productPrice = p.getPrice();
-            sum += productPrice;
+            int productQuantity = p.getQuantity();
+            sum += productPrice*productQuantity;
         }
         return sum;
     }
