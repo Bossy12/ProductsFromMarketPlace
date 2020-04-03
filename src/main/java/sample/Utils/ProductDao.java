@@ -17,8 +17,7 @@ public class ProductDao {
     }
 
     public Product getProduct(int productId) {
-        Product product = session.get(Product.class, productId);
-        return product;
+        return session.get(Product.class, productId);
     }
 
     public Product getProductByName(String productName) {
@@ -27,7 +26,6 @@ public class ProductDao {
         query.setParameter("productName", productName);
         return query.getSingleResult();
     }
-
 
     public void removeProduct(Product productToRemove) {
         Session session = HibernateUtil.getSession();

@@ -9,6 +9,7 @@ public class UserVerifier {
 
     private Session session = HibernateUtil.getSession();
 
+
     public boolean userExist(User userToVerify) {
         Query<User> query = session.createQuery(
                 "select u from User u where username = :username and  password = :password", User.class);

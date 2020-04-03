@@ -1,18 +1,16 @@
 package sample;
 
-import sample.Utils.Basket;
+import sample.Utils.ShopingCart;
 import sample.Utils.ProductDao;
 import sample.Utils.UserDao;
-import sample.Utils.UserVerifier;
 import sample.entity.Product;
 import sample.entity.User;
-import sample.entity.UserType;
 
 public class main2 {
     public static void main(String[] args) {
         User user = new User();
-        user.setUsername("Marius");
-        user.setPassword("654321");
+        user.setUsername("Norocosul");
+        user.setPassword("000000");
 //        user.setUserType(UserType.CUSTOMER);
 
 //        UserVerifier userVerifier = new UserVerifier();
@@ -41,16 +39,13 @@ public class main2 {
 //        userDao.addUser(user);
 
         User client = userDao.getUserByUsername(user.getUsername());
-        Basket basket = new Basket(client);
+        ShopingCart shopingCart = new ShopingCart(client);
         Product product1 = productDao.getProductByName("Laptop");
         Product product2 = productDao.getProductByName("TV LCD");
-        basket.addToBasketList(product1,2);
-        basket.addToBasketList(product2,2);
-        basket.fullPrice(basket.getBasketProducts());
-
-
-
-
+        shopingCart.addToBasketList(product1,2);
+        shopingCart.addToBasketList(product2,2);
+        shopingCart.getTotal();
+        System.out.println(shopingCart.getTotal());
 
     }
 }

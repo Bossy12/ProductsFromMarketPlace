@@ -3,31 +3,27 @@ package sample.Utils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import sample.entity.Product;
 import sample.entity.User;
-import sample.entity.UserType;
 
 import java.util.List;
 
 public class UserDao {
     private Session session = HibernateUtil.getSession();
 
-    public List getAllUsers() {
-        List<User> users = session.createQuery("from User").list();
-        return users;
+    public List<User> getAllUsers() {
+        return session.createQuery("from User").list();
     }
 
     public User getUserById(int userId) {
-        User user = session.get(User.class, userId);
-        return user;
+        return session.get(User.class, userId);
     }
+
     public User getUserByUsername(String username) {
         Query<User> query = session.createQuery(
                 "select u from User u where username = :username", User.class);
         query.setParameter("username", username);
         return query.getSingleResult();
     }
-
 
     public void removeUser(User userToRemove) {
 
@@ -73,9 +69,5 @@ public class UserDao {
         return price;
     }
 */
-
-    public void confirmPayment() {
-
-    }
 
 }
