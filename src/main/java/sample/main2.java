@@ -1,6 +1,6 @@
 package sample;
 
-import sample.Utils.ShopingCart;
+import sample.Utils.ShoppingCart;
 import sample.Utils.ProductDao;
 import sample.Utils.UserDao;
 import sample.entity.Product;
@@ -39,13 +39,13 @@ public class main2 {
 //        userDao.addUser(user);
 
         User client = userDao.getUserByUsername(user.getUsername());
-        ShopingCart shopingCart = new ShopingCart(client);
+        ShoppingCart shoppingCart = new ShoppingCart(client);
         Product product1 = productDao.getProductByName("Laptop");
         Product product2 = productDao.getProductByName("TV LCD");
-        shopingCart.addToBasketList(product1,2);
-        shopingCart.addToBasketList(product2,2);
-        shopingCart.getTotal();
-        System.out.println(shopingCart.getTotal());
+        shoppingCart.addToBasketList(product1,2);
+        shoppingCart.addToBasketList(product2,2);
+        shoppingCart.getTotal();
+        System.out.println(shoppingCart.getTotal());
 
     }
 }

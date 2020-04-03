@@ -6,13 +6,13 @@ import sample.entity.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopingCart {
+public class ShoppingCart {
     private List<Product> basketProducts;
     private Client client;
     private double total;
 
 
-    public ShopingCart(User user) {
+    public ShoppingCart(User user) {
         this.basketProducts = new ArrayList<>();
         this.client = new Client(user);
     }
