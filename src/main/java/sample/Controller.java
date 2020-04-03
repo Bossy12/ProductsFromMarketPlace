@@ -41,7 +41,7 @@ public class Controller {
                 appStage.setScene(scene);
                 appStage.show();
             } else {
-                Parent parent = FXMLLoader.load(getClass().getResource("/employee.fxml"));
+                Parent parent = FXMLLoader.load(getClass().getResource("/customer.fxml"));
                 Scene scene = new Scene(parent);
                 Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 appStage.setScene(scene);
