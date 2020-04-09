@@ -20,7 +20,7 @@ import java.util.List;
 public class EmployeeController {
 
     @FXML
-    TableView<ProductDao> productTable;
+    TableView<Product> productTable;
     @FXML
     TableColumn<Product, String> nameOfProduct;
     @FXML
@@ -55,8 +55,8 @@ public class EmployeeController {
     }
     public void showAllProducts(){
         ProductDao products = new ProductDao();
-        List<ProductDao> result = products.getAllProducts();
-        ObservableList<ProductDao> observableArrayList;
+        List<Product> result = products.getAllProducts();
+        ObservableList<Product> observableArrayList;
         observableArrayList = FXCollections.observableArrayList (result);
         productTable.setItems(observableArrayList);
     }
