@@ -11,7 +11,7 @@ public class UserDao {
     private Session session = HibernateUtil.getSession();
 
     public List<User> getAllUsers() {
-        return session.createQuery("from User").list();
+        return session.createQuery("select u from User u").list();
     }
 
     public User getUserById(int userId) {
