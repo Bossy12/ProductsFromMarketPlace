@@ -11,7 +11,6 @@ public class ShoppingCart {
     private Client client;
     private double total;
 
-
     public ShoppingCart(User user) {
         this.basketProducts = new ArrayList<>();
         this.client = new Client(user);

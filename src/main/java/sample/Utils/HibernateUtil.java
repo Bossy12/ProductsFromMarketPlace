@@ -8,8 +8,8 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 import sample.entity.Product;
 import sample.entity.User;
-import java.util.Properties;
 
+import java.util.Properties;
 
 public class HibernateUtil {
     public static SessionFactory sessionFactory = null;
@@ -36,8 +36,7 @@ public class HibernateUtil {
         return sessionFactory;
     }
 
-    public static Session getSession(){
+    public static Session getSession() {
         return getSessionFactory().openSession();
     }
-
 }

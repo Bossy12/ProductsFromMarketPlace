@@ -6,9 +6,7 @@ import sample.entity.User;
 import sample.entity.UserType;
 
 public class UserVerifier {
-
     private Session session = HibernateUtil.getSession();
-
 
     public boolean userExist(User userToVerify) {
         Query<User> query = session.createQuery(

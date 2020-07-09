@@ -33,6 +33,8 @@ public class CustomerController {
     @FXML
     TableColumn<Product, Integer> quantity;
     @FXML
+    TableColumn<Product, Integer> inStock;
+    @FXML
     private Label wantToBuyLabel;
 
 
@@ -43,6 +45,7 @@ public class CustomerController {
         nameOfProduct.setCellValueFactory(new PropertyValueFactory<>("productName"));
         priceOfProduct.setCellValueFactory(new PropertyValueFactory<>("price"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        inStock.setCellValueFactory(new PropertyValueFactory<>("inStock"));
         showAllProducts();
     }
     @FXML

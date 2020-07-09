@@ -1,7 +1,5 @@
 package sample.Utils;
 
-import sample.entity.User;
-
 public class EmployeeDiscountClient implements DiscountClientStrategy {
     private final double discount = 0.5d;
 
@@ -13,5 +11,4 @@ public class EmployeeDiscountClient implements DiscountClientStrategy {
     public double getDiscount() {
         return discount;
     }
-
 }

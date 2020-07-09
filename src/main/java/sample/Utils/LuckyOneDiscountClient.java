@@ -1,7 +1,6 @@
 package sample.Utils;
 
 public class LuckyOneDiscountClient implements DiscountClientStrategy {
-
     private final double discount = 0.4d;
 
     @Override
@@ -12,6 +11,5 @@ public class LuckyOneDiscountClient implements DiscountClientStrategy {
     public double getDiscount() {
         return discount;
     }
-
-    }
+}
 

@@ -41,10 +41,10 @@ public class Client {
     public DiscountClientStrategy switchDiscountClientStrategy(UserType userType) {
         if (userType.equals(UserType.EMPLOYEE)) {
             return new EmployeeDiscountClient();
-        }else if (userType.equals(UserType.LUCKYONE)){
-            return  new LuckyOneDiscountClient();
+        } else if (userType.equals(UserType.LUCKYONE)) {
+            return new LuckyOneDiscountClient();
         }
-            return new CustomerDiscountClient();
+        return new CustomerDiscountClient();
     }
 }
 
