@@ -60,4 +60,29 @@ public class ProductDao {
         }
         session.close();
     }
+
+    public int getStock(Product product) {
+        product = getProductByName(product.getProductName());
+        return product.getQuantity();
+    }
+
+    public void updateStock(Product product, int updateValue) {
+        {
+            Product product1 = getProductByName(product.getProductName());
+            Session session = HibernateUtil.getSession();
+            Transaction transaction = null;
+            try {
+                transaction = session.beginTransaction();
+                product1.setQuantity(product1.getQuantity() + updateValue);
+                session.update(product1);
+                transaction.commit();
+            } catch (Exception ex) {
+                if (transaction != null) {
+                    transaction.rollback();
+                }
+                ex.printStackTrace();
+            }
+            session.close();
+        }
+    }
 }
