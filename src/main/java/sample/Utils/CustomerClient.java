@@ -1,7 +1,7 @@
 package sample.Utils;
 
-public class LuckyOneDiscountClient implements DiscountClientStrategy {
-    private final double discount = 0.4d;
+public class CustomerClient implements ClientInterface {
+    private final double discount = 1d;
 
     @Override
     public double applyDiscount(double totalToPay) {

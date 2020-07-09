@@ -1,5 +1,5 @@
 package sample.Utils;
 
-public interface DiscountClientStrategy {
+public interface ClientInterface {
     double applyDiscount(double totalToPay);
 }

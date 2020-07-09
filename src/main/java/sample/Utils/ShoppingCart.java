@@ -37,12 +37,12 @@ public class ShoppingCart {
         return sum;
     }
 
-    public void totalWithDiscount(DiscountClientStrategy discountClientStrategy) {
-        this.total = discountClientStrategy.applyDiscount(fullPrice());
+    public void totalWithDiscount(ClientInterface clientInterface) {
+        this.total = clientInterface.applyDiscount(fullPrice());
     }
 
     public double getTotal() {
-        totalWithDiscount(client.getDiscountClientStrategy());
+        totalWithDiscount(client.getClientInterface());
         return total;
     }
 }

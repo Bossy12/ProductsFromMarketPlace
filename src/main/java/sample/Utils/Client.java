@@ -6,12 +6,12 @@ import sample.entity.UserType;
 public class Client {
     private String userName;
     private UserType userType;
-    private DiscountClientStrategy discountClientStrategy;
+    private ClientInterface clientInterface;
 
     public Client(User user) {
         this.userName = user.getUsername();
         this.userType = user.getUserType();
-        setDiscountClientStrategy(switchDiscountClientStrategy(userType));
+        setClientInterface(switchClient(userType));
     }
 
     public String getUserName() {
@@ -30,21 +30,21 @@ public class Client {
         this.userType = userType;
     }
 
-    public DiscountClientStrategy getDiscountClientStrategy() {
-        return discountClientStrategy;
+    public ClientInterface getClientInterface() {
+        return clientInterface;
     }
 
-    public void setDiscountClientStrategy(DiscountClientStrategy discountClientStrategy) {
-        this.discountClientStrategy = discountClientStrategy;
+    public void setClientInterface(ClientInterface clientInterface) {
+        this.clientInterface = clientInterface;
     }
 
-    public DiscountClientStrategy switchDiscountClientStrategy(UserType userType) {
+    public ClientInterface switchClient(UserType userType) {
         if (userType.equals(UserType.EMPLOYEE)) {
-            return new EmployeeDiscountClient();
+            return new EmployeeClient();
         } else if (userType.equals(UserType.LUCKYONE)) {
-            return new LuckyOneDiscountClient();
+            return new LuckyOneClient();
         }
-        return new CustomerDiscountClient();
+        return new CustomerClient();
     }
 }
 
