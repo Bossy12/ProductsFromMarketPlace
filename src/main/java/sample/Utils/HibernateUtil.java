@@ -8,8 +8,8 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 import sample.entity.Product;
 import sample.entity.User;
-import java.util.Properties;
 
+import java.util.Properties;
 
 public class HibernateUtil {
     public static SessionFactory sessionFactory = null;
@@ -22,7 +22,7 @@ public class HibernateUtil {
             settings.put(Environment.URL, "jdbc:mysql://localhost:3306/market_place?useSSL=false&serverTimezone=UTC");
             settings.put(Environment.USER, "root");
             settings.put(Environment.PASS, "root");
-            settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
+            settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
             settings.put(Environment.SHOW_SQL, "true");
             settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
             settings.put(Environment.HBM2DDL_AUTO, "update");
@@ -36,8 +36,7 @@ public class HibernateUtil {
         return sessionFactory;
     }
 
-    public static Session getSession(){
+    public static Session getSession() {
         return getSessionFactory().openSession();
     }
-
 }
