@@ -1,0 +1,21 @@
+.button{
+    -fx-font-size:12px;
+    -fx-font-family: Georgia, serif;
+    -fx-background-color: rgba(215, 255, 250, .80);
+
+}
+#nameOfProduct{
+    -fx-font-size:12px;
+    -fx-background-color: rgba(215, 255, 250, .80);
+    -fx-font-family: Georgia, serif;
+}
+#priceOfProduct{
+    -fx-font-size:12px;
+    -fx-background-color: rgba(215, 255, 250, .80);
+    -fx-font-family: Georgia, serif;
+}
+#quantity{
+    -fx-font-size:12px;
+    -fx-background-color: rgba(215, 255, 250, .80);
+    -fx-font-family: Georgia, serif;
+}
