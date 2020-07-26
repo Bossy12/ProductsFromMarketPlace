@@ -33,10 +33,10 @@ create table order_product
 );
 
 insert into user_details (user_name, password, user_type)
-values ('Ionut', '123456', 'EMPLOYEE'),
-       ('George', '654321', 'CUSTOMER'),
-       ('Norocosul', '000000', 'LUCKYONE'),
-       ('Marius', '142536', 'CUSTOMER');
+values ('Ionut', '123', 'EMPLOYEE'),
+       ('George', '123', 'CUSTOMER'),
+       ('Norocosul', '123', 'LUCKYONE'),
+       ('Marius', '123', 'CUSTOMER');
 
 insert into product (product_name, price, quantity)
 values ('TV LCD', 1500, 50),
