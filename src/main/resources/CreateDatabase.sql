@@ -16,6 +16,22 @@ create table product
     quantity     int                       not null
 );
 
+create table `order`
+(
+    id      int auto_increment unique not null primary key,
+    user_id int                       not null,
+    constraint fk_user_id foreign key (user_id) references user_details (id)
+);
+
+create table order_product
+(
+    order_id   int not null,
+    product_id int not null,
+    constraint fk_order_id foreign key (order_id) references `order` (id),
+    constraint fk_product_id foreign key (product_id) references product (id)
+
+);
+
 insert into user_details (user_name, password, user_type)
 values ('Ionut', '123456', 'EMPLOYEE'),
        ('George', '654321', 'CUSTOMER'),
@@ -31,6 +47,6 @@ values ('TV LCD', 1500, 50),
        ('Refrigerator', 1200, 25),
        ('Tablet', 800, 200);
 
-#   drop schema market_place;
+  # drop schema market_place;
 #   drop table user_details;
 #   drop table product;
