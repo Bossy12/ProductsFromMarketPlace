@@ -25,13 +25,15 @@ import java.util.*;
 public class CustomerController {
 
     @FXML
-    TableView<ProductDao> productTable;
+    TableView<Product> productTable;
     @FXML
     TableColumn<Product, String> nameOfProduct;
     @FXML
     TableColumn<Product, Integer> priceOfProduct;
     @FXML
     TableColumn<Product, Integer> quantity;
+    @FXML
+    TableColumn<Product, Integer> inStock;
     @FXML
     private Label wantToBuyLabel;
 
@@ -43,6 +45,7 @@ public class CustomerController {
         nameOfProduct.setCellValueFactory(new PropertyValueFactory<>("productName"));
         priceOfProduct.setCellValueFactory(new PropertyValueFactory<>("price"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        inStock.setCellValueFactory(new PropertyValueFactory<>("inStock"));
         showAllProducts();
     }
     @FXML
@@ -57,7 +60,7 @@ public class CustomerController {
 
     @FXML
     public void selectOneProduct(MouseEvent mouseEvent){
-        List<ProductDao> name = Collections.singletonList(productTable.getSelectionModel().getSelectedItem());
+        List<Product> name = Collections.singletonList(productTable.getSelectionModel().getSelectedItem());
         Iterator iterator = name.iterator();
         while(iterator.hasNext()) {
             System.out.println(iterator.next());}
@@ -65,8 +68,8 @@ public class CustomerController {
     }
     public void showAllProducts(){
         ProductDao products = new ProductDao();
-        List<ProductDao> result = products.getAllProducts();
-        ObservableList<ProductDao> observableArrayList;
+        List<Product> result = products.getAllProducts();
+        ObservableList<Product> observableArrayList;
         observableArrayList = FXCollections.observableArrayList (result);
         productTable.setItems(observableArrayList);
     }
