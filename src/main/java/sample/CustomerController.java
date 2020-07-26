@@ -32,8 +32,6 @@ public class CustomerController implements Initializable {
     @FXML
     TableColumn<Product, Integer> quantity;
     @FXML
-    TableColumn<Product, Integer> inStock;
-    @FXML
     private Label wantToBuyLabel;
 
 
@@ -44,7 +42,6 @@ public class CustomerController implements Initializable {
         nameOfProduct.setCellValueFactory(new PropertyValueFactory<>("productName"));
         priceOfProduct.setCellValueFactory(new PropertyValueFactory<>("price"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        inStock.setCellValueFactory(new PropertyValueFactory<>("inStock"));
         showAllProducts();
     }
 
