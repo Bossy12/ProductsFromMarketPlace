@@ -1,31 +1,27 @@
 package sample;
 
-import com.sun.javafx.collections.MappingChange;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import lombok.val;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 import sample.Utils.HibernateUtil;
 import sample.Utils.ProductDao;
 import sample.entity.Product;
-
 import java.io.IOException;
+import java.net.URL;
 import java.util.*;
 
-public class CustomerController {
+
+public class CustomerController implements Initializable {
 
     @FXML
-    TableView<ProductDao> productTable;
+    TableView<Product> productTable;
     @FXML
     TableColumn<Product, String> nameOfProduct;
     @FXML
@@ -38,36 +34,60 @@ public class CustomerController {
 
     private static Session session = HibernateUtil.getSession();
 
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         nameOfProduct.setCellValueFactory(new PropertyValueFactory<>("productName"));
         priceOfProduct.setCellValueFactory(new PropertyValueFactory<>("price"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         showAllProducts();
     }
+
     @FXML
     void onReturnClicked() throws IOException {
         Main.showParentScene();
     }
+
     @FXML
-    void onBuyProductClicked(){
-       wantToBuyLabel.setText("You select: " + productTable.getSelectionModel().getSelectedItem());
+    public void onSelectProductClicked(){
 
     }
 
     @FXML
-    public void selectOneProduct(MouseEvent mouseEvent){
-        List<ProductDao> name = Collections.singletonList(productTable.getSelectionModel().getSelectedItem());
-        Iterator iterator = name.iterator();
-        while(iterator.hasNext()) {
-            System.out.println(iterator.next());}
-        //System.out.println(iterator.hashCode());
+    void onBuyProductClicked() {
+        String productToBuy = productTable.getSelectionModel().getSelectedItem()
+                .toString().split(",")[1].split("=")[1];
+        wantToBuyLabel.setText("You select: " + productToBuy);
+        String productId = productTable.getSelectionModel().getSelectedItem()
+                .toString().split(",")[0].split("=")[1];
+
+        int numberProductId = 0;
+        for (int i = 0; i < productId.length(); i++) {
+            char character = productId.charAt(i);
+            if (Character.isDigit(character))
+                numberProductId = Integer.parseInt(String.valueOf(character));
+        }
+        ProductDao product = new ProductDao();
+        // -- to see what product is selected when press button << Buy Product >>
+        Product productBuying = product.getProduct(numberProductId);
+        System.out.println(productBuying);
     }
-    public void showAllProducts(){
+
+    @FXML
+    public void selectOneProduct(MouseEvent mouseEvent) {
+        /*ProductDao product = new ProductDao();
+        List<Product> result = product.getAllProducts();*/
+
+        ObservableList<Product> selectedProduct = productTable.getSelectionModel().getSelectedItems();
+        String productName = selectedProduct.toString().split(",")[1].split("=")[1];
+        System.out.println(productName);
+
+    }
+
+    public void showAllProducts() {
         ProductDao products = new ProductDao();
-        List<ProductDao> result = products.getAllProducts();
-        ObservableList<ProductDao> observableArrayList;
-        observableArrayList = FXCollections.observableArrayList (result);
+        List<Product> result = products.getAllProducts();
+        ObservableList<Product> observableArrayList;
+        observableArrayList = FXCollections.observableArrayList(result);
         productTable.setItems(observableArrayList);
     }
 }
