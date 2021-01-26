@@ -36,7 +36,7 @@ insert into user_details (user_name, password, user_type)
 values ('Ionut', '123456', 'EMPLOYEE'),
        ('George', '654321', 'CUSTOMER'),
        ('Norocosul', '000000', 'LUCKYONE'),
-       ('Marius', '142536', 'CUSTOMER');
+       ('Marius', '123', 'CUSTOMER');
 
 insert into product (product_name, price, quantity)
 values ('TV LCD', 1500, 50),
