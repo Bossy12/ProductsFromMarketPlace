@@ -3,10 +3,7 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-<<<<<<< HEAD
 import javafx.fxml.Initializable;
-=======
->>>>>>> master
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -16,15 +13,12 @@ import org.hibernate.Session;
 import sample.Utils.HibernateUtil;
 import sample.Utils.ProductDao;
 import sample.entity.Product;
+
 import java.io.IOException;
-<<<<<<< HEAD
 import java.net.URL;
-import java.util.*;
-=======
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
->>>>>>> master
+import java.util.ResourceBundle;
+
 
 
 public class CustomerController implements Initializable {
@@ -38,8 +32,6 @@ public class CustomerController implements Initializable {
     @FXML
     TableColumn<Product, Integer> quantity;
     @FXML
-    TableColumn<Product, Integer> inStock;
-    @FXML
     private Label wantToBuyLabel;
 
 
@@ -50,7 +42,6 @@ public class CustomerController implements Initializable {
         nameOfProduct.setCellValueFactory(new PropertyValueFactory<>("productName"));
         priceOfProduct.setCellValueFactory(new PropertyValueFactory<>("price"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        inStock.setCellValueFactory(new PropertyValueFactory<>("inStock"));
         showAllProducts();
     }
 
@@ -60,7 +51,7 @@ public class CustomerController implements Initializable {
     }
 
     @FXML
-    public void onSelectProductClicked(){
+    public void onSelectProductClicked() {
 
     }
 
